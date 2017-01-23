@@ -3,14 +3,14 @@ import numpy as np
 import matplotlib.mlab
 from os import listdir
 from os.path import isfile, join
-	
+
 def oneHotIt(Y):
 	m = Y.shape[0]
 	Y = Y[:,0]
 	OHX = scipy.sparse.csr_matrix((np.ones(m), (Y, np.array(range(m)))))
 	OHX = np.array(OHX.todense()).T
 	return OHX
-	
+
 def processAudio(bpm,samplingRate,mypath):
 	onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 	classes = len(onlyfiles)
