@@ -17,7 +17,6 @@ mypath = str(arguments[3])
 iterations = int(arguments[4])
 batchSize = int(arguments[5])
 
-    
 classes,trainX,trainYa,valX,valY,testX,testY = util.processAudio(bpm,samplingRate,mypath)
 
 def trainNetConv(maxIter):
@@ -25,7 +24,7 @@ def trainNetConv(maxIter):
 	myModel = SoundCNN(classes)
 	with tf.Session() as sess:
 		tf.initialize_all_variables().run()
-		saver = tf.train.Saver(tf.all_variables())   
+		saver = tf.train.Saver(tf.all_variables())
 		myIters = 0
 		fullTrain = np.concatenate((trainX,trainYa),axis=1)
 		while myIters < maxIter:
